@@ -30,21 +30,16 @@ ngOnInit(): void{
 login(){
   var acnum=this.acno
   var psw=this.password
-  var userDetails=this.ds.userDetails
-  if(acnum in userDetails){
-    if(psw==userDetails[acnum]["password"]){
-       alert("login success")
-       this.router.navigateByUrl('dashboard')
-    }
-    else{
-      alert("incorect password")
-    }
   
+  const result=this.ds.login(acnum,psw)
+  if(result){
+    alert('login success')
+    this.router.navigateByUrl('dashboard')
   }
   else{
-    alert("acno incorrect or not registerd yet")
+    alert('incorrect acno or password ')
   }
-}
+
 
 // acnoChange(event:any){
 //   this.acno=event.target.value
@@ -61,4 +56,5 @@ login(){
 
 
   
+}
 }

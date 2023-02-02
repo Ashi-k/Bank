@@ -1,7 +1,7 @@
 <h2 class=" ms-2 p-2 mt-2 text-light">{{data}}</h2>
 <div class="container w-50 rounded border-black text-center p-5 mt-5" style="background-color: rgba(155, 165, 42, 0.533);">
     <h1>Sign In To Your Bank Account</h1>
-    <form action="">
+    <form action="" (ngSubmit)="login()">
         <div class="p-3 mt-2">
             <input [(ngModel)]="acno" name="acnt1" class="form-control" type="text" [placeholder]="inputplaceholder">
         </div>
@@ -9,7 +9,7 @@
             <input  [(ngModel)]="password" name="pswd1" class="form-control" type="text" placeholder="Password">
         </div>
         <div class="p-3 mt-2">
-            <button type="buton" (click)="login()" class="btn btn-outline-light text-black">Login</button>
+            <button type="submit" class="btn btn-outline-light text-black">Login</button>
         </div>
         <div class="text-center text-white">
             <strong>Not Registerd yet  </strong>
