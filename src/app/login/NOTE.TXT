@@ -52,3 +52,10 @@ to store datas and methods
 -all the components can access the datas defined in service file easily
 
          -ng g s service_name
+
+
+
+ Angular Dierectives - TO manipulate DOM 
+ .......................................
+ 1.component Dierectives
+ 2.structural Dierectives *ng for

@@ -1,1 +1,49 @@
-<h1>Welcome User</h1>
+<h2>Welcome {{user}}</h2>
+<div class="container p-2 w-3 text-center border border-dark rounded-pill text-white ">
+    <a style="text-decoration: none; color: blue;" routerLink="/transaction">
+    <strong>Transaction History</strong>
+    </a>
+
+</div>
+
+<div class="row p-5">
+<div class="container w-50 rounded border-black text-center p-5 mt-5" style="background-color: rgba(155, 165, 42, 0.533);">
+    <h1>Deposit</h1>
+    <form action="">
+        <div class="p-3 mt-2">
+            <input [(ngModel)]="acno" id="acno1" name="acnt1" class="form-control" type="text" placeholder="Account Number">
+        </div>
+        <div class="p-3 mt-2">
+            <input [(ngModel)]="psw" id="psw1" name="pswd1" class="form-control" type="password" placeholder="password">
+        </div>
+        <div class="p-3 mt-2">
+            <input [(ngModel)]="amnt" id="acno1" name="acnt1" class="form-control" type="text" placeholder="Enter Amount">
+        </div>
+        <div class="p-3 mt-2">
+            <button (click)="deposit()" type="submit" class="btn btn-outline-light text-black">Deposit</button>
+        </div>
+
+    </form>
+</div>
+
+
+
+<div class="container w-50 rounded border-black text-center p-5 mt-5" style="background-color: rgba(155, 165, 42, 0.533);">
+    <h1>Withdraw</h1>
+    <form action="">
+        <div class="p-3 mt-2">
+            <input  [(ngModel)]="acno1" id="acno2" name="acnt2" class="form-control" type="text" placeholder="Account Number">
+        </div>
+        <div class="p-3 mt-2">
+            <input [(ngModel)]="psw1"  id="psw2" name="pswd2" class="form-control" type="password" placeholder="Password">
+        </div>
+        <div class="p-3 mt-2">
+            <input [(ngModel)]="amnt1" id="amt2" name="amt2" class="form-control" type="text" placeholder="Enter Amount">
+        </div>
+        <div class="p-3 mt-2">
+            <button (click)="withdraw()" type="submit" class="btn btn-outline-light text-black">Withdraw</button>
+        </div>
+    
+    </form>
+</div>
+</div>
