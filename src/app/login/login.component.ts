@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Action } from 'rxjs/internal/scheduler/Action';
 import { DataService } from '../Services/data.service';
@@ -8,30 +9,36 @@ import { DataService } from '../Services/data.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit{
   
   data="Your perfect banking partner"
   inputplaceholder="Account Number"
 
-  acno=''
-  // //acno:any 
+  loginForm=this.fb.group({
+  acno:['',[Validators.required,Validators.pattern('[0-9]+')]],
 
-  password=''
+  password:['',[Validators.required,Validators.pattern('[0-9a-zA-Z]+')]]
+})
+  
   // //password:any
 
 
 
-constructor(private router:Router,private ds:DataService) {}
+constructor(private router:Router,private ds:DataService,private fb:FormBuilder) {}
 
 ngOnInit(): void{
 
 }
 
 login(){
-  var acnum=this.acno
-  var psw=this.password
+  var acno=this.loginForm.value.acno
+  var password=this.loginForm.value.password
+  var result=this.ds.login(acno,password)
   
-  const result=this.ds.login(acnum,psw)
+  if (this.loginForm.valid){
+  
+ 
+
   if(result){
     alert('login success')
     this.router.navigateByUrl('dashboard')
@@ -53,7 +60,10 @@ login(){
  
 // }
 
-
+  }
+  else{
+    alert('invalid form')
+  }
 
   
 }

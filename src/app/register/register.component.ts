@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataService } from '../Services/data.service';
 
@@ -7,13 +8,18 @@ import { DataService } from '../Services/data.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit{
 
-  uname=""
-  acno=""
-  psw=""
+ 
 
-  constructor(private ds:DataService, private router:Router) {}
+  // create reactive form of register form
+  registerForm=this.fb.group({
+    uname:['',[Validators.required,Validators.pattern('[a-zA-Z]+')]],
+    acno:['',[Validators.required,Validators.pattern('[0-9]+')]],
+    psw:['',[Validators.required,Validators.pattern('[0-9a-zA-Z]+')]]
+  }) 
+
+  constructor(private ds:DataService, private router:Router,private fb:FormBuilder) {}
 
 
 ngOnInit(): void{
@@ -22,9 +28,11 @@ ngOnInit(): void{
 
 register(){
 
-var uname=this.uname
-var acno=this.acno
-var psw=this.psw
+var uname=this.registerForm.value.uname
+var acno=this.registerForm.value.acno
+var psw=this.registerForm.value.psw
+
+if (this.registerForm.valid){
 
 const result=this.ds.register(uname,acno,psw)
 
@@ -35,7 +43,10 @@ if(result){
 else{'acno already present '}
 
 // console.log(uname,acno,psw);
-
+}
+else{
+  alert('invalid form')
+}
 
 
 }

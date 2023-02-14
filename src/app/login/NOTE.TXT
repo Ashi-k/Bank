@@ -59,3 +59,27 @@ to store datas and methods
  .......................................
  1.component Dierectives
  2.structural Dierectives *ng for
+
+
+ Validation In Angular
+ ......................
+
+ 1.Template driven form
+ 2.model driven form
+        
+        2.1. reactive form -used to create model of form
+        reactive form contain -group,array,control
+
+                 -ReactiveFormsModule  - module
+                 -FormBuilder          - class used to create model form
+                 -group()              - method to create model
+
+
+    Local storage in Angular
+    .........................
+    LocalStorage.getitem()
+    localStorage.setItem()
+    localStorage.removeItem()
+
+    json -stringify parse             
+
