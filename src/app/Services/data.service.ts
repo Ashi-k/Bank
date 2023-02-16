@@ -67,11 +67,11 @@ export class DataService {
 
     if(acnum in userDetails){
       if(psw==userDetails[acnum]["password"]){
-        this.currentUser=userDetails[acnum]['Username']
+        this.currentUser=userDetails[acnum]['username']
         this.currentAcno=acnum
+        this.saveData()  
          return true
 
-         this.saveData()  
       }
       else{
         return false

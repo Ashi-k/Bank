@@ -58,7 +58,8 @@ to store datas and methods
  Angular Dierectives - TO manipulate DOM 
  .......................................
  1.component Dierectives
- 2.structural Dierectives *ng for
+ 2.structural Dierectives *ng for *ngif
+ 3.atribute directives    [ngclass]
 
 
  Validation In Angular
@@ -81,5 +82,12 @@ to store datas and methods
     localStorage.setItem()
     localStorage.removeItem()
 
-    json -stringify parse             
+    json -stringify parse
+
+    parent child components communication
+    .....................................
+
+    @input() parent to child data sharing
+    @output()  child to parent data sharing
+
 

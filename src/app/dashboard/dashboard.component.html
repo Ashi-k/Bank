@@ -1,4 +1,10 @@
-<h2 class="text-center text-white">Welcome {{user}}</h2>
+<div class="text-end pt-3 pe-4">
+    <button class="btn btn-danger" (click)="deleteparent">Delete Account</button>
+    <button (click)="logout()" class="btn btn-light ms-2">Logout</button>
+</div>
+
+
+<h1>Welcome {{user}}</h1>
 <div class="container p-2 w-3 text-center border border-dark rounded-pill text-white  " style="background-color: rgba(0, 0, 0, 0.211);">
     <a style="text-decoration: none; color: rgb(238, 238, 244);" routerLink="/transaction">
     <strong>Transaction History</strong>
@@ -6,11 +12,12 @@
 
 </div>
 
+<app-deleteconfirm [item]="acno"></app-deleteconfirm>
 
-<div class="row p-5">
+<div [ngClass]="acno?'style':'' " class="row p-5">
 <div class="container w-50 rounded border-black text-center p-5 mt-5" style="background-color: rgba(155, 165, 42, 0.533);">
     <h1>Deposit</h1>
-    <form  action=""  [formGroup]="depositeForm">
+    <form  action="" [formGroup]="depositeForm">
         <div class="p-3 mt-2">
             <input formControlName="acno" id="acno1" name="acnt1" class="form-control" type="text" placeholder="Account Number">
         </div>
@@ -48,10 +55,6 @@
     </form>
 </div>
 
-<div class="text-center pt-3 pe-2">
-    <button class="btn btn-danger">Delete Account</button>
-    <button class="btn btn-light ms-2">Logout</button>
-</div>
 
 
 

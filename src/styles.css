@@ -3,3 +3,7 @@ body{
     background-image: url("./assets/photo-1581281664590-ea70e1f2f323.avif");
     background-size: cover;
 }
+
+.style{
+display: none;
+}

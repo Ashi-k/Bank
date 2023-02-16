@@ -20,7 +20,7 @@ amnt:['',[Validators.required,Validators.pattern('[0-9]+')]]
 })
 
 withdrowForm=this.fb.group(
-{acno1:['',[Validators.required,Validators.pattern('[0-9]+')]],
+{acno1  :['',[Validators.required,Validators.pattern('[0-9]+')]],
 psw1:['',[Validators.required,Validators.pattern('[0-9a-zA-Z]+')]],
 amnt1:['',[Validators.required,Validators.pattern('[0-9]+')]]
 })
@@ -28,6 +28,10 @@ amnt1:['',[Validators.required,Validators.pattern('[0-9]+')]]
  
 
  ngOnInit(): void {
+  if(!localStorage.getItem("currentAcno")){
+    alert('please login')
+    this.router.navigateByUrl("")
+  }
  }
 
 deposit(){
@@ -79,7 +83,15 @@ else{
 
   }
 
+logout(){
+  localStorage.removeItem("currentUser")
+  localStorage.removeItem("currentAcno")
+  this.router.navigateByUrl("")
+}
 
+deleteparent(){
+ this.acno=JSON.parse(localStorage.getItem("currentAcno") || "")
+}
 
 
 }
